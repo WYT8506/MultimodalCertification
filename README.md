@@ -15,7 +15,7 @@ Please setup the KITTI Road Dataset and models trained with ablated inputs accor
 MultimodalCertification
  |-- checkpoints
  |  |-- kitti
- |  |  |-- MethodName_net_RoadSeg.pth
+ |  |  |-- CertificationMethod_net_RoadSeg.pth
  |-- data
  |-- datasets
  |  |-- kitti
