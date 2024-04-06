@@ -31,11 +31,11 @@ Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more d
 ## Usage
 
 ### Training on the KITTI dataset
-For training, you need to setup the `datasets/kitti` folder as mentioned above.
+For training with ablated inputs, you first need to setup the `datasets/kitti` folder as mentioned above, and then run:
 ```
-bash ./scripts/train.sh
+python train.py --dataroot datasets/kitti --dataset kitti --use_sne --certification_method MMCert --ablation_ratio_train 0.05
 ```
-and the weights will be saved in `checkpoints` and the tensorboard record containing the loss curves as well as the performance on the validation set will be save in `runs`. Note that `use-sne` in `train.sh` controls if we will use our SNE model, and the default is True. If you delete it, our RoadSeg will take depth images as input, and you also need to delete `use-sne` in `test.sh` to avoid errors when testing.
+and the model weights will be saved in `checkpoints`. Note that `use-sne` in `train.sh` means the SNE model is used.
 
 ### Testing on the KITTI dataset
 For KITTI submission, you need to setup the `checkpoints` and the `datasets/kitti/testing` folder as mentioned above. Then, run the following script:
