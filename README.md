@@ -6,11 +6,7 @@ This is the official PyTorch implementation of [**MMCert: Provable Defense again
 In this repo, we provide a certified segmentation example for the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). We test our code in Python 3.7, CUDA 10.0, cuDNN 7 and PyTorch 1.1.
 
 <p align="center">
-<img src="doc/kitti.gif" width="100%"/>
-</p>
-
-<p align="center">
-<img src="doc/sne-roadseg.png" width="100%"/>
+<img src="/subsampling.gif" width="100%"/>
 </p>
 
 
