@@ -15,7 +15,7 @@ Please setup the KITTI Road Dataset and pretrained weights according to the foll
 SNE-RoadSeg
  |-- checkpoints
  |  |-- kitti
- |  |  |-- kitti_net_RoadSeg.pth
+ |  |  |-- MethodName_net_RoadSeg.pth
  |-- data
  |-- datasets
  |  |-- kitti
@@ -33,22 +33,21 @@ SNE-RoadSeg
  |  |  |  |-- calib
  |  |  |  |-- depth_u16
  |  |  |  |-- image_2
- |-- examples
+ |-- output
  ...
 ```
-`image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). We implement `depth_u16` based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Note that `depth_u16` has the `uint16` data format, and the real depth in meters can be obtained by ``double(depth_u16)/1000``. Moreover, the pretrained weights `kitti_net_RoadSeg.pth` for our SNE-RoadSeg-152 can be downloaded from [here](https://drive.google.com/file/d/17eqDPTs0Sv83Q7e-IWox_69bCbiXUzPU/view?usp=sharing).
-
+Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). The output folder is used to store the output of test_ensemble.py, which contains all ablated multi-modal inputs and their corresponding model predictions. They will later be used for certification purpose in certify.ipynb.
 
 ## Usage
 
-### Run an example ###
-We provide one example in `examples`. To run it, you only need to setup the `checkpoints` folder as mentioned above. Then, run the following script:
+### Training on the KITTI dataset
+For training, you need to setup the `datasets/kitti` folder as mentioned above.
 ```
-bash ./scripts/run_example.sh
+bash ./scripts/train.sh
 ```
-and you will see `normal.png`, `pred.png` and `prob_map.png` in `examples`. `normal.png` is the normal estimation by our SNE; `pred.png` is the freespace prediction by our SNE-RoadSeg; and `prob_map.png` is the probability map predicted by our SNE-RoadSeg.
+and the weights will be saved in `checkpoints` and the tensorboard record containing the loss curves as well as the performance on the validation set will be save in `runs`. Note that `use-sne` in `train.sh` controls if we will use our SNE model, and the default is True. If you delete it, our RoadSeg will take depth images as input, and you also need to delete `use-sne` in `test.sh` to avoid errors when testing.
 
-### Testing for KITTI submission
+### Testing on the KITTI dataset
 For KITTI submission, you need to setup the `checkpoints` and the `datasets/kitti/testing` folder as mentioned above. Then, run the following script:
 ```
 bash ./scripts/test.sh
@@ -57,13 +56,14 @@ and you will get the prediction results in `testresults`. After that you can fol
 
 If everything works fine, you will get a MaxF score of **96.74** for **URBAN**. Note that this is our re-implemented weights, and it is very similar to the reported ones in the paper (a MaxF score of **96.75** for **URBAN**).
 
-### Training on the KITTI dataset
-For training, you need to setup the `datasets/kitti` folder as mentioned above. You can split the original training set into a new training set and a validation set as you like. Then, run the following script:
+### Certification on the KITTI dataset
+For KITTI submission, you need to setup the `checkpoints` and the `datasets/kitti/testing` folder as mentioned above. Then, run the following script:
 ```
-bash ./scripts/train.sh
+bash ./scripts/test.sh
 ```
-and the weights will be saved in `checkpoints` and the tensorboard record containing the loss curves as well as the performance on the validation set will be save in `runs`. Note that `use-sne` in `train.sh` controls if we will use our SNE model, and the default is True. If you delete it, our RoadSeg will take depth images as input, and you also need to delete `use-sne` in `test.sh` to avoid errors when testing.
+and you will get the prediction results in `testresults`. After that you can follow the [submission instructions](http://www.cvlibs.net/datasets/kitti/eval_road.php) to transform the prediction results into the BEV perspective for submission.
 
+If everything works fine, you will get a MaxF score of **96.74** for **URBAN**. Note that this is our re-implemented weights, and it is very similar to the reported ones in the paper (a MaxF score of **96.75** for **URBAN**).
 
 ## Citation
 You can cite our paper if you use this code for your research.
