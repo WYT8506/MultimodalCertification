@@ -26,7 +26,7 @@ MultimodalCertification
  |-- output
  ...
 ```
-Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Since the original testing set does not contain ground-truth labels, we split the original training set into a new training set and a testing set. The output folder is used to store the output of test_ensemble.py, which contains all ablated multi-modal inputs and their corresponding model predictions. They will later be used for certification purpose in certify.ipynb.
+Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Since the original testing set does not contain ground-truth labels, we split the original training set into a new training set and a testing set. The output folder is used to store the output of test_ensemble.py, which contains all ablated multi-modal inputs and their corresponding base model predictions. They will later be used for certification purpose in certify.ipynb.
 
 ## Usage
 
@@ -38,22 +38,16 @@ python train.py --dataroot datasets/kitti --dataset kitti --use_sne --certificat
 and the model weights will be saved in `checkpoints`. Note that `use-sne` in `train.sh` means the SNE model is used.
 
 ### Testing on the KITTI dataset
-For KITTI submission, you need to setup the `checkpoints` and the `datasets/kitti/testing` folder as mentioned above. Then, run the following script:
+The next step is to create ablated versions of testing inputs, and use the trained base model to make predictions for them. For the default setting, you run:
 ```
-bash ./scripts/test.sh
+python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne
 ```
-and you will get the prediction results in `testresults`. After that you can follow the [submission instructions](http://www.cvlibs.net/datasets/kitti/eval_road.php) to transform the prediction results into the BEV perspective for submission.
+and you will get all ablated multi-modal inputs and their corresponding base model predictions in `output`. 
 
 If everything works fine, you will get a MaxF score of **96.74** for **URBAN**. Note that this is our re-implemented weights, and it is very similar to the reported ones in the paper (a MaxF score of **96.75** for **URBAN**).
 
 ### Certification on the KITTI dataset
-For KITTI submission, you need to setup the `checkpoints` and the `datasets/kitti/testing` folder as mentioned above. Then, run the following script:
-```
-bash ./scripts/test.sh
-```
-and you will get the prediction results in `testresults`. After that you can follow the [submission instructions](http://www.cvlibs.net/datasets/kitti/eval_road.php) to transform the prediction results into the BEV perspective for submission.
-
-If everything works fine, you will get a MaxF score of **96.74** for **URBAN**. Note that this is our re-implemented weights, and it is very similar to the reported ones in the paper (a MaxF score of **96.75** for **URBAN**).
+Then, we can analyze the certification performance of our method using the information saved from the last step. You can use certify.ipynb to play with different certification settings.
 
 ## Citation
 You can cite our paper if you use this code for your research.
