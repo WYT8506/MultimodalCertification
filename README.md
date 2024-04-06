@@ -42,9 +42,7 @@ The next step is to create ablated versions of testing inputs, and use the train
 ```
 python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne --certification_method MMCert
 ```
-and you will get all base model predictions for these ablated versions of testing inputs in `output`. 
-
-If everything works fine, you will get a MaxF score of **96.74** for **URBAN**. Note that this is our re-implemented weights, and it is very similar to the reported ones in the paper (a MaxF score of **96.75** for **URBAN**).
+and you will get all base model predictions for these ablated versions of testing inputs in `output`. If you want to compare with the baseline method (randomized ablation), just replace "MMCert" with "randomized_ablation" for both training and testing.
 
 ### Certification on the KITTI dataset
 Then, we can analyze the certification performance of our method using the information saved from the last step. You can use certify.ipynb to play with different certification settings.
