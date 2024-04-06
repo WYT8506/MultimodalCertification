@@ -40,7 +40,7 @@ and the model weights will be saved in `checkpoints`. Note that `use-sne` in `tr
 ### Testing on the KITTI dataset
 The next step is to create ablated versions of testing inputs, and use the trained base model to make predictions for them. For the default setting, you run:
 ```
-python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne
+python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne --certification_method MMCert
 ```
 and you will get all base model predictions for these ablated versions of testing inputs in `output`. 
 
