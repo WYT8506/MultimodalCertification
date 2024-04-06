@@ -79,4 +79,4 @@ If you use this code for your research, please cite our paper.
 ```
 
 ## Acknowledgement
-Our code is inspired by [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix), and we thank [Jun-Yan Zhu](https://github.com/junyanz) for their great work.
+Our code is based on [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg).
