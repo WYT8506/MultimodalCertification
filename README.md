@@ -24,19 +24,10 @@ MultimodalCertification
  |  |  |  |-- depth_u16
  |  |  |  |-- gt_image_2
  |  |  |  |-- image_2
- |  |  |-- validation
- |  |  |  |-- calib
- |  |  |  |-- depth_u16
- |  |  |  |-- gt_image_2
- |  |  |  |-- image_2
- |  |  |-- testing
- |  |  |  |-- calib
- |  |  |  |-- depth_u16
- |  |  |  |-- image_2
  |-- output
  ...
 ```
-Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Since the original testing set does not contain ground-truth label, we split the original training set into a new training set and a testing set. The output folder is used to store the output of test_ensemble.py, which contains all ablated multi-modal inputs and their corresponding model predictions. They will later be used for certification purpose in certify.ipynb.
+Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Since the original testing set does not contain ground-truth labels, we split the original training set into a new training set and a testing set. The output folder is used to store the output of test_ensemble.py, which contains all ablated multi-modal inputs and their corresponding model predictions. They will later be used for certification purpose in certify.ipynb.
 
 ## Usage
 
