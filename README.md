@@ -8,7 +8,7 @@ In this paper, we propose an independent subsampling strategy that allows us to 
 <img src="/subsampling (1).png" width="80%"/>
 </p>
 
-In this repo, we provide a certified segmentation example for the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) using [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) as the multi-modal model. We test our code in Python 3.7, CUDA 10.0, cuDNN 7 and PyTorch 1.1.
+In this repo, we provide a certified segmentation example for the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) using [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) as the multi-modal model. We test our code in Python 3.8, CUDA 12.3, and PyTorch 2.2.2.
 ## Setup
 Please setup the KITTI Road Dataset and pretrained weights according to the following folder structure:
 ```
