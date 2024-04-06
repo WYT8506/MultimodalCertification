@@ -12,7 +12,7 @@ In this repo, we provide a certified segmentation example for the [KITTI Road Da
 ## Setup
 Please setup the KITTI Road Dataset and models trained with ablated inputs according to the following folder structure:
 ```
-SNE-RoadSeg
+MultimodalCertification
  |-- checkpoints
  |  |-- kitti
  |  |  |-- MethodName_net_RoadSeg.pth
