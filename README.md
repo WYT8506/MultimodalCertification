@@ -19,11 +19,10 @@ MultimodalCertification
  |-- data
  |-- datasets
  |  |-- kitti
- |  |  |-- training
- |  |  |  |-- calib
- |  |  |  |-- depth_u16
- |  |  |  |-- gt_image_2
- |  |  |  |-- image_2
+ |  |  |-- calib
+ |  |  |-- depth_u16
+ |  |  |-- gt_image_2
+ |  |  |-- image_2
  |-- output
  ...
 ```
