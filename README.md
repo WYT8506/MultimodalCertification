@@ -2,13 +2,13 @@
 
 ## Introduction
 This is the official PyTorch implementation of [**MMCert: Provable Defense against Adversarial Attacks to Multi-modal Models**](https://arxiv.org/abs/2403.19080), accepted by [CVPR 2024].
-In this paper, we propose an independent subsampling strategy that allows us to provable defend against adversarial perturbations in all modalities. Below is an illustration of this subsampling strategy, where we subsample ablated versions of different modalities independently.
+In this paper, we propose an independent subsampling strategy that allows us to provably defend against adversarial perturbations in all modalities. Our method is model agnostic. Below is an illustration of this subsampling strategy, where we subsample ablated versions of different modalities independently.
 
 <p align="center">
 <img src="/subsampling (1).png" width="80%"/>
 </p>
 
-In this repo, we provide a certified segmentation example for the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). We test our code in Python 3.7, CUDA 10.0, cuDNN 7 and PyTorch 1.1.
+In this repo, we provide a certified segmentation example for the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) using [SNE-RoadSeg] as the multi-modal model. We test our code in Python 3.7, CUDA 10.0, cuDNN 7 and PyTorch 1.1.
 ## Setup
 Please setup the KITTI Road Dataset and pretrained weights according to the following folder structure:
 ```
