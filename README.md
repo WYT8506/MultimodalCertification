@@ -66,15 +66,13 @@ and the weights will be saved in `checkpoints` and the tensorboard record contai
 
 
 ## Citation
-If you use this code for your research, please cite our paper.
+You can cite our paper if you use this code for your research.
 ```
-@inproceedings{fan2020sne,
-  title        = {{SNE-RoadSeg}: Incorporating surface normal information into semantic segmentation for accurate freespace detection},
-  author       = {Fan, Rui and Wang, Hengli and Cai, Peide and Liu, Ming},
-  booktitle    = {European Conference on Computer Vision},
-  pages        = {340--356},
-  year         = {2020},
-  organization = {Springer}
+@article{wang2024mmcert,
+  title={MMCert: Provable Defense against Adversarial Attacks to Multi-modal Models},
+  author={Wang, Yanting and Fu, Hongye and Zou, Wei and Jia, Jinyuan},
+  journal={arXiv preprint arXiv:2403.19080},
+  year={2024}
 }
 ```
 
