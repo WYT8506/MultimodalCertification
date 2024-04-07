@@ -194,7 +194,7 @@ class kittidataset(BaseDataset):
                 depth_image = randomly_ablate_train(depth_image, ablation_ratio=self.opt.ablation_ratio_train, ablation_value=0)
             else:
                 rgb_image,depth_image = jointly_ablate_images(rgb_image, depth_image, percentage = self.opt.ablation_ratio_train,test_mode = False)
-        if self.phase == "test":
+        elif self.phase == "test":
             if self.opt.certification_method == "MMCert":
                 rgb_image = randomly_ablate_test(rgb_image, ablation_ratio=self.opt.ablation_ratio_test1, ablation_value=0)
                 depth_image = randomly_ablate_test(depth_image, ablation_ratio=self.opt.ablation_ratio_test2, ablation_value=0)
