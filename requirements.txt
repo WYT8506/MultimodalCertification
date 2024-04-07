@@ -1,0 +1,11 @@
+mkl-service==2.4.0
+opencv-python==4.9.0.80
+packaging==24.0
+protobuf==5.26.1
+tensorboardX==2.6.2.2
+torch==2.2.2
+torchaudio==2.2.2
+torchvision==0.17.2
+tqdm==4.66.2
+triton==2.2.0
+
