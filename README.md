@@ -45,7 +45,7 @@ python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne --ce
 , and you will get all base model predictions for these ablated versions of testing inputs in `output`. If you want to compare with the baseline method (randomized ablation), just replace "MMCert" with "randomized_ablation" for both training and testing.
 
 ### Certification on the KITTI dataset
-Then, we can analyze the certification performance of our method using the information saved from the last step. You can use `certify.ipynb` to try with different certification settings.
+Then, we can analyze the certification performance of our method using the information saved from the last step. You can use `certify.ipynb` to try different certification settings.
 
 ## Citation
 You can cite our paper if you use this code for your research.
