@@ -1,0 +1,1 @@
+python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne

@@ -1,0 +1,1 @@
+python train.py --dataroot datasets/kitti --dataset kitti --use_sne --certification_method randomized_ablation --ablation_ratio_train 0.05
