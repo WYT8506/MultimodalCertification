@@ -43,7 +43,7 @@ The next step is to create ablated versions of testing inputs, and use the train
 ```
 python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne --certification_method MMCert
 ```
-, and you will get all base model predictions for these ablated versions of testing inputs in `output`. If you want to compare with the baseline method (randomized ablation), just replace "MMCert" with "randomized_ablation" for both training and testing.
+, and you will get all base model predictions for these ablated versions of testing inputs in `output`.
 
 ### Certification on the KITTI dataset
 Then, we can analyze the certification performance of our method using the information saved from the last step. You can use `certify.ipynb` to try different certification settings.
