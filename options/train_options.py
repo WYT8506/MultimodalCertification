@@ -7,7 +7,7 @@ class TrainOptions(BaseOptions):
         parser.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
         parser.add_argument('--epoch_count', type=int, default=1, help='the starting epoch count')
         parser.add_argument('--phase', type=str, default='train', help='train,test')
-        parser.add_argument('--nepoch', type=int, default=20, help='maximum epochs')
+        parser.add_argument('--nepoch', type=int, default=100, help='maximum epochs')
         parser.add_argument('--beta1', type=float, default=0.5, help='momentum term of adam')
         parser.add_argument('--lr', type=float, default=0.001, help='initial learning rate for optimizer')
         parser.add_argument('--momentum', type=float, default=0.9, help='momentum factor for SGD')
