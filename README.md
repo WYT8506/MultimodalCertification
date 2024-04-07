@@ -26,7 +26,7 @@ MultimodalCertification
  |-- output
  ...
 ```
-Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Since the original testing set does not contain ground-truth labels, we split the original training set into a new training set and a testing set. The output folder is used to store the output of test_ensemble.py, which contains all the base model predictions for these ablated multi-modal inputs. They will later be used for certification purpose in certify.ipynb.
+Please check [SNE-RoadSeg](https://github.com/hlwang1124/SNE-RoadSeg) for more details about the KITTI Road Dataset. `image_2`, `gt_image_2` and `calib` can be downloaded from the [KITTI Road Dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php). `depth_u16` is based on the LiDAR data provided in the KITTI Road Dataset, and it can be downloaded from [here](https://drive.google.com/file/d/16ft3_V8bMM-av5khZpP6_-Vtz-kF6X7c/view?usp=sharing). Since the original testing set does not contain ground-truth labels, we split the original training set into a new training set and a testing set. The `output` folder is used to store the output of test_ensemble.py, which contains all the base model predictions for these ablated multi-modal inputs. They will later be used for certification purpose in certify.ipynb.
 
 ## Usage
 
@@ -45,7 +45,7 @@ python test_ensemble.py --dataroot datasets/kitti --dataset kitti --use_sne --ce
 , and you will get all base model predictions for these ablated versions of testing inputs in `output`. If you want to compare with the baseline method (randomized ablation), just replace "MMCert" with "randomized_ablation" for both training and testing.
 
 ### Certification on the KITTI dataset
-Then, we can analyze the certification performance of our method using the information saved from the last step. You can use certify.ipynb to play with different certification settings.
+Then, we can analyze the certification performance of our method using the information saved from the last step. You can use `certify.ipynb` to try with different certification settings.
 
 ## Citation
 You can cite our paper if you use this code for your research.
