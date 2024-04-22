@@ -78,7 +78,5 @@ if __name__ == '__main__':
     all_pred = torch.stack(all_pred)
     all_gt = torch.stack(all_gt)
     dict_ = {"all_pred":all_pred, "all_gt":all_gt}
-    if test_opt.certification_method == "randomized_ablation":
-        torch.save(dict_, 'output/'+test_opt.certification_method+"_ablation-ratio-test="+str(test_opt.ablation_ratio_test)+'_all_outputs.pth')
-    else:
-        torch.save(dict_, 'output/'+test_opt.certification_method+"_ablation-ratio-test1="+str(test_opt.ablation_ratio_test1)+"_ablation-ratio-test2="+str(test_opt.ablation_ratio_test2)+'_all_outputs.pth')
+
+    torch.save(dict_, 'output/'+test_opt.certification_method+"_ablation-ratio-test1="+str(test_opt.ablation_ratio_test1)+"_ablation-ratio-test2="+str(test_opt.ablation_ratio_test2)+'_all_outputs.pth')
